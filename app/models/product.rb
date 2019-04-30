@@ -1,3 +1,4 @@
+require 'webdrivers'
 require 'selenium-webdriver'
 require 'rspec/expectations'
 include RSpec::Matchers
@@ -18,12 +19,15 @@ class Product < ApplicationRecord
   private
 
   def setup
-    Selenium::WebDriver::Chrome::Service.driver_path = Rails.public_path.to_s + "/chromedriver"
+    #Webdrivers::Chromedriver.update
+    # Selenium::WebDriver::Chrome::Service.driver_path = Rails.public_path.to_s + "/chromedriver"
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
+    #options.add_argument('--disable-gpu')
+    #options.add_argument('--no-sandbox')
     @driver = Selenium::WebDriver.for :chrome, options: options
+    #@driver = Selenium::WebDriver.for :chrome
+    # @driver.manage.window.resize_to(1300, 500)
   end
 
   def teardown

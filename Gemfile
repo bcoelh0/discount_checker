@@ -57,6 +57,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
+gem 'webdrivers', '~> 3.0'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
 
