@@ -40,3 +40,4 @@ class Product < ApplicationRecord
     teardown
   end
 end
+
