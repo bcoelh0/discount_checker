@@ -1,0 +1,9 @@
+
+= form_tag(controller: "home", action: "create", method: "post") do
+  = label_tag(:url, "Product Link")
+  = text_field_tag(:url) 
+  %br
+  = label_tag(:url, "Email")
+  = text_field_tag(:email) 
+  %br
+  = submit_tag("Set Alert!")

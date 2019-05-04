@@ -2,6 +2,11 @@ require 'webdrivers'
 require 'selenium-webdriver'
 
 class Product < ApplicationRecord
+  belongs_to :user
+  validates :url, presence: true
+  validate :url_must_be_valid, :url_must_have_protocol
+  validates_uniqueness_of :url, scope: :user
+
   def discounted?
     run do
       @driver.get url
@@ -30,6 +35,18 @@ class Product < ApplicationRecord
     setup
     yield
     teardown
+  end
+
+  def url_must_be_valid
+    unless url.include?("continente.pt")
+      errors.add(:url, "must be from a continente.pt product.")
+    end
+  end
+
+  def url_must_have_protocol
+    unless url.include?("http") || url.include?("https")
+      errors.add(:url, "must contain http or https.")
+    end
   end
 end
 
