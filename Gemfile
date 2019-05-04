@@ -27,6 +27,7 @@ gem 'webdrivers', '~> 3.0'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
 gem "haml-rails", "~> 2.0"
+gem "figaro"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
