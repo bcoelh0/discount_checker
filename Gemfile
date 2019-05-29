@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'webdrivers', '~> 3.0'
+gem 'webdrivers'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
 gem "haml-rails", "~> 2.0"
@@ -31,6 +31,9 @@ gem "figaro"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +54,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end

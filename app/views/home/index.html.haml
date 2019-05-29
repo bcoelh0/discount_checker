@@ -1,9 +1,20 @@
+.container
+  .row.mt-5
+    .col-sm-8.offset-sm-2.text-center
+      %h1 Discount app
+      %h5 Get notified about product discounts!
+      %p
+        Note: All links must be for a product page on
+        = link_to "Continente Online", "https://www.continente.pt/", target: :blank
 
-= form_tag(controller: "home", action: "create", method: "post") do
-  = label_tag(:url, "Product Link")
-  = text_field_tag(:url) 
-  %br
-  = label_tag(:url, "Email")
-  = text_field_tag(:email) 
-  %br
-  = submit_tag("Set Alert!")
+  .row.mt-5
+    .col-sm-4.offset-sm-4
+      = form_tag(controller: "home", action: "create", method: "post") do
+        .form-group
+          = label_tag :url, "Product Link"
+          = text_field_tag :url, nil, class: "form-control", placeholder: "Product URL"
+        .form-group
+          = label_tag :email, "Email"
+          = text_field_tag :email, nil, class: "form-control", placeholder: "Email to get alerted at"
+        .form-group
+          = submit_tag "Set Alert!", class: "btn btn-primary"
