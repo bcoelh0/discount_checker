@@ -1,5 +1,6 @@
-# TODO
 
-- use simplecov for test coverage
-- do testing with RSPEC: https://www.youtube.com/watch?v=71eKcNxwxVY
-- TDD
+# TODO
+- have better error handling
+- add product name + get product name
+- manage all products for an user
+- more rspec tests

@@ -1,6 +1,26 @@
 .container
   .row.mt-5
     .col-sm-8.offset-sm-2.text-center
+      - if notice.present?
+        .alert.alert-success{ role: "alert" }
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          #notice= notice
+
+      - if @product.errors.any? || @user.errors.any?
+        #errors.alert.alert-danger{ role: "alert" }
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %ul
+            - @product.errors.full_messages.each do |message|
+              %li= message
+            - @user.errors.full_messages.each do |message|
+              %li= message
+
+
+
+
+      %br
       %h1 Discount app
       %h5 Get notified about product discounts!
       %p
@@ -18,3 +38,8 @@
           = text_field_tag :email, nil, class: "form-control", placeholder: "Email to get alerted at"
         .form-group
           = submit_tag "Set Alert!", class: "btn btn-primary"
+
+.container
+  .row.mt-5
+    .col-sm-8.offset-sm-2.text-center
+      %small= link_to "Manage your alerts here.", "#"

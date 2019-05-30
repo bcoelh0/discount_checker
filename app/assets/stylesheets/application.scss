@@ -13,3 +13,12 @@
  */
 @import "bootstrap";
 @import "home";
+
+#notice p{
+  margin-bottom: 0;
+}
+
+#errors ul{
+  list-style: none;
+  margin-bottom: 0;
+}

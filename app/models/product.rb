@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :user
   validates :url, presence: true
   validate :url_must_be_valid, :url_must_have_protocol
-  validates_uniqueness_of :url, scope: :user
+  validates_uniqueness_of :url, scope: :user, message: "You already have created this alert!"
 
   def discounted?
     run do
@@ -49,4 +49,3 @@ class Product < ApplicationRecord
     end
   end
 end
-
