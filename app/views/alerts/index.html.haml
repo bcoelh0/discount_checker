@@ -1,0 +1,28 @@
+.container
+  .row.mt-5
+    .col-sm-8.offset-sm-2
+      .alert.alert-success{ role: "alert" }
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        #notice= notice
+
+      %h3
+        Alerts for
+        = @email
+      %br
+      %br
+      %table.table
+        %thead
+          %tr
+            %td Name
+            %td{ colspan: "1" }
+            %td Action
+        %tbody
+          - @alerts.each do |alert|
+            %tr
+              %td= link_to alert.name, alert.product.url, target: :blank
+              %td{ colspan: "1" }
+              %td= link_to 'Destroy', alert, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm"
+
+      %br
+      = link_to "Home", root_path

@@ -7,15 +7,16 @@
             %span{"aria-hidden" => "true"} ×
           #notice= notice
 
-      - if @product.errors.any? || @user.errors.any?
+      - if @alert.errors.any? || @user.errors.any?
         #errors.alert.alert-danger{ role: "alert" }
           %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
             %span{"aria-hidden" => "true"} ×
           %ul
-            - @product.errors.full_messages.each do |message|
+            - @alert.errors.full_messages.each do |message|
               %li= message
             - @user.errors.full_messages.each do |message|
               %li= message
+
 
       %br
       %h1 Discount app
@@ -25,8 +26,11 @@
         = link_to "Continente Online", "https://www.continente.pt/", target: :blank
 
   .row.mt-5
-    .col-sm-4.offset-sm-4
-      = form_tag(controller: "home", action: "create", method: "post") do
+    .col-sm-6.offset-sm-3
+      = form_for(@alert, url: { action: "create" }) do
+        .form-group
+          = label_tag :name, "Alert Name"
+          = text_field_tag :name, nil, class: "form-control", placeholder: "Alert Name"
         .form-group
           = label_tag :url, "Product Link"
           = text_field_tag :url, nil, class: "form-control", placeholder: "Product URL"
@@ -34,7 +38,7 @@
           = label_tag :email, "Email"
           = text_field_tag :email, nil, class: "form-control", placeholder: "Email to get alerted at"
         .form-group
-          = submit_tag "Set Alert!", class: "btn btn-primary"
+          = submit_tag "Set Alert!", class: "btn btn-primary btn-lg"
 
 .container
   .row.mt-5
@@ -45,6 +49,6 @@
   $('#manage-alerts').on('click', function(){
     var email = prompt("Please enter your email address");
     if (email != null) {
-      window.location = '/products?email=' + email;
+      window.location = '/alerts?email=' + email;
     }
   });
