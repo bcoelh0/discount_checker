@@ -1,8 +1,8 @@
 namespace :check_discounts do
   task run: :environment do
-    Product.all.each do |product|
-      if product.discounted?
-        AlertMailer.with(product: product).discount_email.deliver_now
+    Alert.all.each do |alert|
+      if alert.product.discounted?
+        AlertMailer.with(alert: alert).discount_email.deliver_now
       end
     end
   end

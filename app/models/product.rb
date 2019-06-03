@@ -5,7 +5,6 @@ class Product < ApplicationRecord
   belongs_to :alert
   validates :url, presence: true
   validate :url_must_be_valid, :url_must_have_protocol
-  #validates_uniqueness_of :url, scope: :alert, message: "You already have created this alert!" # not working!
 
   def discounted?
     run do
