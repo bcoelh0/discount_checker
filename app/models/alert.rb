@@ -1,6 +1,6 @@
 class Alert < ApplicationRecord
   has_one :product, dependent: :destroy
-  has_one :user
+  belongs_to :user
   validates :product, presence: true
   validates :user, presence: true
   validates :name, presence: true

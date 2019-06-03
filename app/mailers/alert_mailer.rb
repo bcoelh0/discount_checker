@@ -5,6 +5,6 @@ class AlertMailer < ApplicationMailer
     @alert = params[:alert]
     @user = @alert.user
     @product = @alert.product
-    mail(to: @user.email, subject: "Discount on #@alert.name!")
+    mail(to: @user.email, subject: "Discount on #{@alert.name}!")
   end
 end
